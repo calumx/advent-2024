@@ -169,3 +169,8 @@ dist
 .pnp.\*
 
 .idea
+
+
+# Puzzle inputs - see https://adventofcode.com/about#faq_copying
+
+src/**/*.txt
