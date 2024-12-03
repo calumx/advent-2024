@@ -32,4 +32,15 @@ export function partOne(input: ReturnType<typeof parse>): number {
   return result
 }
 
-export function partTwo(input: ReturnType<typeof parse>) {}
+export function partTwo(input: ReturnType<typeof parse>) {
+  const [arr1, arr2] = input
+
+  const set1 = new Set(arr1)
+  const appearances = new Map<number, number>()
+  set1.forEach(num => {
+    const count = arr2.filter(n => n === num).length
+    appearances.set(num, count)
+  })
+  const totals = arr1.map(num => (appearances.get(num) || 0) * num)
+  return totals.reduce((acc, curr) => acc + curr, 0)
+}
